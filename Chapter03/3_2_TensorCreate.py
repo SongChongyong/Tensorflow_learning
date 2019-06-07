@@ -26,3 +26,12 @@ with tf.Session() as sess:
 # 输出结果为：
 # 3.0
 # [1.0, 2.0, 3.0]
+
+
+#保存计算图
+#使用tf.get_default_graph()保存默认的TensorBoard,事件文件保存在'./test_board'下
+#而后可以在命令行输入: tensorboard --logdir=./test_board 启动tensorboard,
+#然后在浏览器中查看张量的计算图(见3_2_TensorCreate_Board.png)
+writer = tf.summary.FileWriter(logdir='./test_board',graph=tf.get_default_graph())
+writer.flush()
+
